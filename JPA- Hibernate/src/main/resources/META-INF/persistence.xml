@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml..."
+             version="2.0">
+
+    <persistence-unit name="hibernatejpa" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <class>br.com.devmedia.java.hibernate.Lembrete</class>
+
+       <properties>
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/hibernatejpa?createDatabaseIfNotExist=true"/>
+        <property name="javax.persistence.jdbc.user" value="root"/>
+        <property name="javax.persistence.jdbc.password" value="1254"/>
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+    
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
+       </properties>
+    </persistence-unit>
+</persistence>
