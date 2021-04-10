@@ -1,8 +1,8 @@
 package br.com.agenda.factory;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 
-import com.mysql.jdbc.Connection;
 
 public class ConnectionFactory {
 	
@@ -28,7 +28,7 @@ public class ConnectionFactory {
 		return connection;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 	 //Recuperar uma conexão com o banco de dados
 		Connection con = createConnectionToMySql();
 		
