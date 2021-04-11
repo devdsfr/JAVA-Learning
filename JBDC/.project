@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>resources/mysql-connector-java-5.1.24-bin.jar</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Hibernate/connector-j-8.0-relnotes-en.html-section/mysql-connector-java-5.1.24-bin.jar</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

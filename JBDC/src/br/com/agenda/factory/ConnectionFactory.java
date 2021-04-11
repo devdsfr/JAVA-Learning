@@ -2,6 +2,9 @@ package br.com.agenda.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.concurrent.ExecutionException;
+//import java.sql.DriverManager;
 
 
 public class ConnectionFactory {
@@ -10,16 +13,16 @@ public class ConnectionFactory {
 	private static final String USERNAME = "root";
 	
 	//Senha do banco
-	private static final String PASSWORD = "1254";
+	private static final String PASSWORD = "";
 	
 	//Caminho do banco de dados, porta ep nome do banco de dados
-	private static final String DATABASE_URL = "jbdc:mysql://localhost:3307/agenda";
+	private static final String DATABASE_URL = "jbdc:mysql://127.0.0.1:3306/agenda";
 	
 	//conexao com o banco de dados 
 	
-	public static java.sql.Connection createConnectionToMySql() throws Exception {
+	public static Connection createConnectionToMySql() throws Exception {
 		// faz que a classe seja carregada com o JVM
-		Class.forName("com.mysql.jbdc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");
 		
 
 	   //Criar a conexao com o banco de dados
