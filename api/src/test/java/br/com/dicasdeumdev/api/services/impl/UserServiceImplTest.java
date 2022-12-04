@@ -19,7 +19,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class UserServiceImplTest {
@@ -106,7 +106,7 @@ class UserServiceImplTest {
         assertEquals(PASSWORD, response.getPassword());
     }
     @Test
-    void whenCreateReturnDataIntegratyViolationException() {
+    void whenCreateReturnDataIntegrityViolationException() {
         when(repository.findByEmail(anyString())).thenReturn(optionalUser);
 
         try{
@@ -132,7 +132,7 @@ class UserServiceImplTest {
     }
 
     @Test
-    void whenUpdateReturnDataIntegratyViolationException() {
+    void whenUpdateReturnDataIntegrityViolationException() {
         when(repository.findByEmail(anyString())).thenReturn(optionalUser);
 
         try{
@@ -145,7 +145,23 @@ class UserServiceImplTest {
     }
 
     @Test
-    void delete() {
+    void deleteWithSuccess() {
+        when(repository.findById(anyLong())).thenReturn(optionalUser);
+        doNothing().when(repository).deleteById(anyLong());
+        service.delete(ID);
+        verify(repository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    void deleteWithObjectNotFoundException(){
+        when(repository.findById(anyLong())).thenThrow(new ObjectNotFoundException(OBJETO_NAO_ENCONTRADO));
+
+        try {
+            service.delete(ID);
+        }catch (Exception ex){
+            assertEquals(ObjectNotFoundException.class, ex.getClass());
+            assertEquals(OBJETO_NAO_ENCONTRADO, ex.getMessage());
+        }
     }
 
     private void startUser(){
