@@ -34,8 +34,6 @@ class ResourceExceptionHandlerTest {
                 .objectNotFound(new ObjectNotFoundException(OBJETO_NAO_ENCONTRADO),
                         new MockHttpServletRequest());
 
-
-
         assertNotNull(response);
         assertNotNull(response.getBody());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -52,6 +50,7 @@ class ResourceExceptionHandlerTest {
         ResponseEntity<StandardError> response = exceptionHandler
                 .dataIntegrityViolationException(new DataIntegratyViolationException(EMAIL_JA_CADASTRADO),
                         new MockHttpServletRequest());
+
         assertNotNull(response);
         assertNotNull(response.getBody());
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
