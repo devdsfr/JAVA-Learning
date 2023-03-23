@@ -99,7 +99,7 @@ class UserResourceTest {
     }
 
     @Test
-    void whenUpdateThenReturnCreated() {
+    void whenUpdateThenReturnUpdate() {
         when(service.update(userDTO)).thenReturn(user);
         when(mapper.map(any(), any())).thenReturn(userDTO);
 

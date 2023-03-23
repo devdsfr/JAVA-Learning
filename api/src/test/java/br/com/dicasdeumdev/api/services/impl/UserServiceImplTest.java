@@ -74,7 +74,6 @@ class UserServiceImplTest {
             assertEquals(ObjectNotFoundException.class, ex.getClass());
             assertEquals(OBJETO_NAO_ENCONTRADO, ex.getMessage());
         }
-
     }
 
     @Test
