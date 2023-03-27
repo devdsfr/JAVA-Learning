@@ -41,7 +41,6 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
 		<!-- pom.xml -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -47,4 +47,8 @@ public class UsuarioResource {
         services.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    public void setServices(UsuarioService services) {
+        this.services = services;
+    }
 }
