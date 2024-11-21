@@ -11,7 +11,7 @@ import software.amazon.awssdk.services.s3.S3Client;
 @Configuration
 public class S3Config {
 
-    @Value("${aws.region:us-east-2}") // Permite definir a região via propriedades
+    @Value("${aws.region}") // Permite definir a região via propriedades
     private String awsRegion;
 
     @Value("${aws.accessKeyId}") // Chave de acesso da AWS

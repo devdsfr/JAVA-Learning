@@ -1,5 +1,6 @@
 package com.aws.cartola.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -12,8 +13,9 @@ import java.nio.file.Paths;
 public class S3Service {
 
     private final S3Client s3Client;
-    private final String bucketName = "cartola-dsfr"; // Substitua pelo nome do seu bucket
 
+    @Value("${aws.s3.bucket-name}")
+    private String bucketName;
     @Autowired
     public S3Service(S3Client s3Client) {
         this.s3Client = s3Client;
